@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'weather_app'|trans }}{% endblock %}
+{% block body %}
+<div class="container">
+    <h2 class="header-center">Pogoda</h2>
+    {{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {% for message in app.flashes('error') %}
+            <div class="alert error">
+                {{ message|trans }}
+            </div>
+        {% endfor %}
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="form-center">
+       {{ form_row(form.city, {'attr': {'class': 'input'}}) }}
+    </div>
+    <div class="form-center">
+       {{ form_row(form.unit, {'attr': {'class': 'input'}}) }}
+    </div>
+        <button class="button-inline" type="submit">{{ 'show.temperature'|trans }}</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

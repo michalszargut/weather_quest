@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'weather_for'|trans }} {{ city }}{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="weather">
+            <div class="icon">
+                <img src="{{ 'https://openweathermap.org/img/wn/'~weather.weather.icon~'@2x.png' }}">
+            </div>
+            <div class="degree">
+                <div class="temp">{{ weather.temp.current_temp~weather.temp.temp_unit }}</div>
+            </div>
+            <div class="desc">
+                <h2>{{ city }}</h2>
+                <span class="details">{{ weather.weather.description }}</span>
+            </div>
+        </div>
+        <div class="weather">
+            <table>
+                <thead>
+                <tr class="table-header">
+                    <td>{{ 'five_days_average'|trans }}</td>
+                    <td>{{ 'wind_speed'|trans }}</td>
+                    <td>{{ 'wind_direction'|trans }}</td>
+                    <td>{{ 'sunset'|trans }}</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ weather.temp.five_days_ave_temp|round(2)~weather.temp.temp_unit }}</td>
+                    <td>{{ weather.wind.speed|round(2)~' '~weather.wind.unit }}</td>
+                    <td>{{ weather.wind.direction }}</td>
+                    <td>{{ weather.temp.sunrise|date('H:i', 'Europe/Berlin') }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ path('homepage') }}">{{ 'back'|trans }}</a>
+    </div>
+{% endblock %}

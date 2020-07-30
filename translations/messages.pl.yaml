@@ -1,0 +1,12 @@
+weather_app: 'Aplikacja pogodowa'
+weather_for: 'Pogoda dla'
+five_days_average: 'Pięciodniowa średnia'
+sunset: 'Wschód słońca'
+wind_speed: 'Prędkość wiatru'
+wind_direction: 'Kierunek wiatru'
+show:
+  temperature: 'Pokaż temperaturę'
+unit_of_speed: 'Jednostka prędkości'
+city: 'Miasto'
+invalid_parameters: 'Wysłane dane są błędne lub ich brakuje'
+back: 'Cofnij'
